@@ -1,0 +1,133 @@
+// @import "./variable";
+@use 'variable' as var;
+.voice-btn.recording {
+  animation: pulse 1s infinite;
+  background-color: #ff4d4d;
+  color: white;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.recording {
+  max-width: 100%;
+}
+
+.recording-ui {
+  display: flex;
+  max-width: 90%;
+  align-items: center;
+  gap: 10px;
+}
+
+.recording-timer {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ff4d4d;
+}
+
+.audio {
+  background-color: red;
+
+}
+
+
+.chat-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: width 0.3s ease;
+  @media (max-width: 600px) {
+    gap: 0px;
+    margin-left: 0;
+  }
+
+  &.recording {
+    width: 20%;
+    justify-content: space-between;
+
+    .player input[type="range"] {
+      width: 100px;
+    }
+  }
+
+  .message-meta {
+    display: none;
+  }
+
+  audio {
+    height: 32px;
+  }
+
+  .send-btn,
+  .cancel-btn,
+  .voice-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  .recording-timer {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+audio {
+  // all:unset;
+  background-color: transparent !important;
+  outline: none;
+  border: none;
+  color: var.$whatsapp-text-muted !important;
+  // min-width: 100%;      
+  height: 40px;
+  border-radius: 8px;
+  // background: none !important;   
+}
+
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  @media (max-width: 768px) {
+    gap: 2px;
+  }
+
+  span {
+    color: var.$whatsapp-text-primary;
+  }
+}
+
+.player button {
+  padding: 5px 12px;
+  padding-top: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #1db954;
+  color: white;
+  cursor: pointer;
+}
+
+
+.player input[type="range"] {
+  width: 200px;
+}

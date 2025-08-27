@@ -1,0 +1,273 @@
+// @import "./variable";
+@use 'variable' as var;
+
+.sidebar {
+  flex: 0 0 25%;
+  // max-width: 400px;
+  min-width: 250px;
+  width: 400px;
+  // width: 30%;
+  height: 100vh;
+  // overflow: hidden;
+  // overflow-y: auto;
+  background-color: var.$whatsapp-sidebar-bg;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var.$whatsapp-border;
+  .warning{
+       top: 50%;
+       height: 100%;
+      display: flex;
+      align-items: center;
+      flex: 1;
+      justify-content: center;
+      color: var.$whatsapp-text-primary;
+      background-color: transparent;
+    }
+
+  .chat-header {
+    flex-shrink: 0;
+    // position: sticky;
+    // z-index: 100;
+    padding: 16px;
+    background-color: var.$whatsapp-sidebar-bg;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+
+    h3 {
+      color: var.$whatsapp-text-primary;
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+
+      @media (max-width: 768px) {
+        font-size: 12px;
+        font-weight: 350;
+      }
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 8px;
+
+      .action-btn {
+        background: none;
+        border: none;
+        color: var.$whatsapp-text-secondary;
+        padding: 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: var.$whatsapp-hover;
+          color: var.$whatsapp-text-primary;
+        }
+      }
+    }
+  }
+
+  .searchbox {
+    flex-shrink: 0;
+    padding: 12px 16px;
+    background-color: var.$whatsapp-sidebar-bg;
+    position: sticky;
+    top: 0;
+    // margin-bottom: 10px;
+    z-index: 90;
+
+    .input-field {
+      width: 100%;
+      // margin-bottom: 10px;
+      padding: 12px 40px 12px 40px;
+      background-color: var.$whatsapp-input-bg;
+      border: none;
+      border-radius: 8px;
+      color: var.$whatsapp-text-primary;
+      // font-size: 14px;
+      font-size: 1rem;
+      transition: all 0.05s ease;
+      box-sizing: border-box;
+      font-family: inherit;
+
+      &::placeholder {
+        color: var.$whatsapp-text-muted;
+        font-size: 14px;
+      }
+
+      &:focus {
+        outline: none;
+        background-color: var.$whatsapp-input-bg;
+        border-bottom: 1px solid #28D146;
+      }
+
+      &:hover {
+        background-color: var.$whatsapp-hover;
+      }
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 28px;
+      top: 50%;
+      // padding-bottom: 10px;
+      transform: translateY(-50%);
+      color: var.$whatsapp-text-secondary;
+      font-size: 16px;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .clear-btn {
+      position: absolute;
+      right: 28px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var.$whatsapp-text-secondary;
+      cursor: pointer;
+      padding: 6px;
+      // padding-bottom: 14px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      font-size: 14px;
+      z-index: 10;
+
+      &:hover {
+        background-color: var.$whatsapp-hover;
+        color: var.$whatsapp-text-primary;
+      }
+    }
+  }
+
+  .chat-list {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 10px;
+    min-height: 0;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-button {
+      height: 20px;
+
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var.$whatsapp-hover;
+      border-radius: 3px;
+      height: 20px;
+
+    }
+
+    .chat-entry {
+      display: flex;
+      padding: 12px 16px;
+      cursor: pointer;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      // border-bottom: 1px solid var.$whatsapp-border;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: var.$whatsapp-hover;
+      }
+
+      &.active {
+        background-color: var.$whatsapp-active;
+      }
+
+      .profile-pic {
+        position: relative;
+        margin-right: 12px;
+        font-size: 40px;
+        color: var.$whatsapp-text-secondary;
+        @media (max-width: 768px){
+              margin-top: 8px;
+              justify-self: center;
+               font-size: 25px;
+        }
+        @media (max-width: 480px){
+              
+               
+        }
+
+
+      }
+
+      .chat-info {
+        flex: 1;
+        min-width: 0;
+
+        .chat-name {
+          color: var.$whatsapp-text-primary;
+          font-weight: 500;
+          margin-bottom: 4px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          @media (max-width: 768px){
+               font-size: medium;
+               font-weight: 400;
+        }
+        @media (max-width: 480px){
+              font-size: 12px;
+               font-weight: 350;
+        }
+        }
+
+        .last-message {
+          color: var.$whatsapp-text-secondary;
+          font-size: 13px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          @media (max-width: 768px){
+               font-size: 11px;
+        }
+        @media (max-width: 480px){
+              font-size: 10px;
+              
+        }
+        }
+      }
+
+      .chat-meta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-left: 8px;
+
+        .message-time {
+          color: var.$whatsapp-text-secondary;
+          font-size: 12px;
+          margin-bottom: 4px;
+          @media (max-width: 768px){
+            font-size: 10px;
+        }
+        }
+
+        .unread-badge {
+          background-color: #28D146;
+          color: var.$whatsapp-black;
+          border-radius: 50%;
+          min-width: 18px;
+          height: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 11px;
+          font-weight: bold;
+          @media (max-width: 768px){
+            font-size: 8px;
+        }
+        }
+      }
+    }
+  }
+}

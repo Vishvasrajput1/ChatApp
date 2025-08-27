@@ -1,0 +1,70 @@
+// @import  "./assets/sass/main";
+@use './assets/sass/main';
+@use './assets/sass/variable' as var;
+
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var.$whatsapp-black;
+}
+
+
+
+.app {
+  display: flex;
+  height: 100vh;
+  // flex-wrap: wrap;
+  // flex-grow: ;
+  flex-flow: row;
+  width: 100%;
+  background-color: var.$whatsapp-black;
+}
+
+// html, body, .app {
+//   height: 100%;
+// }
+
+// .sidebar,
+// .chatbox {
+//   height: 100%;
+//   overflow: hidden;
+// }
+
+.chat-list,
+.messages {
+  overflow-y: auto;
+}
+
+.messages-time{
+  font-size: xx-small;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
